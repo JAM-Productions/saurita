@@ -4,6 +4,7 @@
   "description": "A secretary discord bot",
   "main": "index.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write 'src/**/*.js'",
     "check-format": "prettier --check 'src/**/*.js'"
@@ -12,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^14.14.1",
+    "dotenv": "^16.4.5",
     "prettier": "^3.2.5"
   }
 }
