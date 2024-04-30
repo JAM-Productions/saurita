@@ -7,7 +7,8 @@
     "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write 'src/**/*.js'",
-    "check-format": "prettier --check 'src/**/*.js'"
+    "check-format": "prettier --check 'src/**/*.js'",
+    "deploy-commands": "node src/deploy-commands.js"
   },
   "author": "",
   "license": "ISC",
