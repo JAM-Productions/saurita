@@ -39,3 +39,23 @@ npm run format
 ```bash
 npm run check-format
 ```
+
+## Run tests
+
+```bash
+npm run test
+```
+
+## Deployment
+
+### Only in our Discord server
+
+```bash
+npm run deploy-commands-guild
+```
+
+### Globally
+
+```bash
+npm run deploy-commands-global
+```
