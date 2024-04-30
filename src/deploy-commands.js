@@ -37,7 +37,7 @@ const rest = new REST().setToken(process.env.DISCORD_TOKEN);
             // Only use the applicationGuildCommands route if you are deploying commands to a guild
             // and not globally. If you are deploying commands globally, use the applicationCommands route.
 			Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID),
-            // Routes.applicationCommands(clientId),
+            // Routes.applicationCommands(process.env.CLIENT_ID),
 			{ body: commands },
 		);
 
