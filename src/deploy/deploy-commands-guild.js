@@ -5,7 +5,7 @@ const path = require('node:path');
 
 const commands = [];
 // Grab all the command folders from the commands directory you created earlier
-const foldersPath = path.join(__dirname, 'commands');
+const foldersPath = path.join(__dirname, '../commands');
 const commandFolders = fs.readdirSync(foldersPath);
 
 for (const folder of commandFolders) {
@@ -34,10 +34,7 @@ const rest = new REST().setToken(process.env.DISCORD_TOKEN);
 
 		// The put method is used to fully refresh all commands in the guild with the current set
 		const data = await rest.put(
-            // Only use the applicationGuildCommands route if you are deploying commands to a guild
-            // and not globally. If you are deploying commands globally, use the applicationCommands route.
 			Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID),
-            // Routes.applicationCommands(process.env.CLIENT_ID),
 			{ body: commands },
 		);
 

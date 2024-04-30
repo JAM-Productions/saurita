@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write 'src/**/*.js'",
     "check-format": "prettier --check 'src/**/*.js'",
-    "deploy-commands": "node src/deploy-commands.js"
+    "deploy-commands-guild": "node src/deploy/deploy-commands-guild.js",
+    "deploy-commands-global": "node src/deploy/deploy-commands-global.js"
   },
   "author": "",
   "license": "ISC",
