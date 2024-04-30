@@ -1,7 +1,7 @@
-const { MessageActionRow, MessageButton } = require('discord.js');
-const { execute } = require('./ping');
+const { MessageActionRow, MessageButton } = require("discord.js");
+const { execute } = require("./ping");
 
-describe('Ping Command', () => {
+describe("Ping Command", () => {
     test('Reply with "Pong!"', async () => {
         const mockInteraction = {
             reply: jest.fn(),
@@ -9,6 +9,6 @@ describe('Ping Command', () => {
 
         await execute(mockInteraction);
 
-        expect(mockInteraction.reply).toHaveBeenCalledWith('Pong!');
+        expect(mockInteraction.reply).toHaveBeenCalledWith("Pong!");
     });
 });

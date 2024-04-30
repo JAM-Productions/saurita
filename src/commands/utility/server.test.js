@@ -1,9 +1,9 @@
-const { execute } = require('./server');
+const { execute } = require("./server");
 
-describe('Server Command', () => {
-    test('Reply with server information', async () => {
+describe("Server Command", () => {
+    test("Reply with server information", async () => {
         const mockGuild = {
-            name: 'Mock Guild',
+            name: "Mock Guild",
             memberCount: 10,
         };
 
@@ -14,6 +14,8 @@ describe('Server Command', () => {
 
         await execute(mockInteraction);
 
-        expect(mockInteraction.reply).toHaveBeenCalledWith(`This server is ${mockGuild.name} and has ${mockGuild.memberCount} members.`);
+        expect(mockInteraction.reply).toHaveBeenCalledWith(
+            `This server is ${mockGuild.name} and has ${mockGuild.memberCount} members.`,
+        );
     });
 });

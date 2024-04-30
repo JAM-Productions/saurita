@@ -1,13 +1,13 @@
-const { execute } = require('./user');
+const { execute } = require("./user");
 
-describe('User Command', () => {
-    test('Reply with user information', async () => {
+describe("User Command", () => {
+    test("Reply with user information", async () => {
         const mockUser = {
-            username: 'MockUser',
+            username: "MockUser",
         };
 
         const mockMember = {
-            joinedAt: '2024-04-30',
+            joinedAt: "2024-04-30",
         };
 
         const mockInteraction = {
@@ -18,6 +18,8 @@ describe('User Command', () => {
 
         await execute(mockInteraction);
 
-        expect(mockInteraction.reply).toHaveBeenCalledWith(`This command was run by ${mockUser.username}, who joined on ${mockMember.joinedAt}.`);
+        expect(mockInteraction.reply).toHaveBeenCalledWith(
+            `This command was run by ${mockUser.username}, who joined on ${mockMember.joinedAt}.`,
+        );
     });
 });
