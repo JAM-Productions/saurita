@@ -10,6 +10,14 @@ A discord bot to manage our things like:
 - Provide regular feedback on the status of our projects and statistics
 - Play music
 
+## How it works
+
+The bot is built using the [discord.js](https://discord.js.org) library. It uses the [slash commands](https://discord.com/developers/docs/interactions/slash-commands) feature to interact with users.
+
+The diagram is the following:
+
+![diagram](/diagram/diagram.png)
+
 ## Requirements
 
 - Node.js (>=`v16.11.0`).
@@ -58,4 +66,38 @@ npm run deploy-commands-guild
 
 ```bash
 npm run deploy-commands-global
+```
+
+## Development
+
+### Add a new command
+
+1. Create a new file in the `commands` directory.
+2. You must export a function with the following signature:
+
+```javascript
+module.exports = {
+    name: 'command-name',
+    description: 'Command description',
+    execute: async (interaction) => {
+        // Your code here
+    }
+};
+```
+
+3. Add a mock test in the `tests` directory.
+
+### Add a new event
+
+1. Create a new file in the `events` directory.
+2. You must export a function with the following signature:
+
+```javascript
+module.exports = {
+    name: 'event-name',
+    once: false,
+    execute: async (client, ...args) => {
+        // Your code here
+    }
+};
 ```
