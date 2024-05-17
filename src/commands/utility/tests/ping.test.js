@@ -1,5 +1,5 @@
 const { MessageActionRow, MessageButton } = require("discord.js");
-const { execute } = require("./ping");
+const { execute } = require("../ping");
 
 describe("Ping Command", () => {
     test('Reply with "Pong!"', async () => {

@@ -1,4 +1,4 @@
-const { execute } = require("./user");
+const { execute } = require("../user");
 
 describe("User Command", () => {
     test("Reply with user information", async () => {

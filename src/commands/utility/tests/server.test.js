@@ -1,4 +1,4 @@
-const { execute } = require("./server");
+const { execute } = require("../server");
 
 describe("Server Command", () => {
     test("Reply with server information", async () => {
