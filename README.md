@@ -77,8 +77,9 @@ npm run deploy-commands-global
 
 ```javascript
 module.exports = {
-    name: 'command-name',
-    description: 'Command description',
+    data: new SlashCommandBuilder()
+        .setName("new-command")
+        .setDescription("New command description"),,
     execute: async (interaction) => {
         // Your code here
     }
@@ -95,8 +96,7 @@ module.exports = {
 ```javascript
 module.exports = {
     name: 'event-name',
-    once: false,
-    execute: async (client, ...args) => {
+    execute: async (interaction) => {
         // Your code here
     }
 };
