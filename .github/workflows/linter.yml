@@ -1,0 +1,15 @@
+name: Oxlint linter
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  oxlint:
+    name: Oxlint linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: npx --yes oxlint@latest --deny-warnings
