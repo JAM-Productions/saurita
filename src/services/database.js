@@ -26,6 +26,17 @@ async function syncTags() {
     await tags.sync();
 }
 
+async function createTag(tagName, tagDescription, username) {
+    const tag = await tags.create({
+        name: tagName,
+        description: tagDescription,
+        username: username,
+    });
+
+    return tag;
+}
+
 module.exports = {
     syncTags,
+    createTag,
 };
