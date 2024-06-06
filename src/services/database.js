@@ -32,7 +32,7 @@ async function createTag(tagName, tagDescription, username) {
         description: tagDescription,
         username: username,
     });
-
+    console.log(tag);
     return tag;
 }
 
@@ -55,10 +55,17 @@ async function displayTag(tagName) {
     return tag;
 }
 
+async function listTags() {
+    const tagList = await tags.findAll({ attributes: ["name"] });
+    const tagString = tagList.map((t) => t.name).join(", ") || "No tags set.";
+    return tagString;
+}
+
 module.exports = {
     syncTags,
     createTag,
     fetchTag,
     editTag,
     displayTag,
+    listTags,
 };

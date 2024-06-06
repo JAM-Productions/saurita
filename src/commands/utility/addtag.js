@@ -4,8 +4,12 @@ const { createTag } = require("../../services/database");
 module.exports = {
     data: new SlashCommandBuilder().setName("addtag").setDescription("Add new tag."),
     async execute(interaction) {
-        const tagName = interaction.options.getString("name");
-        const tagDescription = interaction.options.getString("description");
+        const tagName = interaction.options.get("name");
+        const tagDescription = interaction.options.get("description");
+
+        if (!tagName || !tagDescription) {
+            return interaction.reply("Tag name or description is missing.");
+        }
 
         try {
             const tag = await createTag(tagName, tagDescription, interaction.user.username);

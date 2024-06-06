@@ -7,6 +7,10 @@ module.exports = {
         const tagName = interaction.options.getString("name");
         const tagDescription = interaction.options.getString("description");
 
+        if (!tagName || !tagDescription) {
+            return interaction.reply("Tag name or description is missing.");
+        }
+
         try {
             const affectedRows = await editTag(tagName, tagDescription);
             if (affectedRows > 0) {

@@ -6,6 +6,10 @@ module.exports = {
     async execute(interaction) {
         const tagName = interaction.options.getString("name");
 
+        if (!tagName) {
+            return interaction.reply("Tag name is missing.");
+        }
+
         try {
             const tag = await fetchTag(tagName);
             return interaction.reply(tag.get("description") ?? "No description");
