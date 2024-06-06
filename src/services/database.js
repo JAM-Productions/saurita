@@ -43,8 +43,16 @@ async function fetchTag(tagName) {
 }
 
 async function editTag(tagName, tagDescription) {
-    const affectedRows = await tags.update({ description: tagDescription }, { where: { name: tagName } });
+    const affectedRows = await tags.update(
+        { description: tagDescription },
+        { where: { name: tagName } },
+    );
     return affectedRows > 0;
+}
+
+async function displayTag(tagName) {
+    const tag = await tags.findOne({ where: { name: tagName } });
+    return tag;
 }
 
 module.exports = {
@@ -52,4 +60,5 @@ module.exports = {
     createTag,
     fetchTag,
     editTag,
+    displayTag,
 };
