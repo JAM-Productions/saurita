@@ -1,5 +1,5 @@
 const { Events } = require("discord.js");
-const { syncTags } = require("../services/database");
+const { syncTags } = require("../services/tagService");
 
 module.exports = {
     name: Events.ClientReady,
