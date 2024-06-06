@@ -36,7 +36,14 @@ async function createTag(tagName, tagDescription, username) {
     return tag;
 }
 
+async function fetchTag(tagName) {
+    const tag = await tags.findOne({ where: { name: tagName } });
+    tag.increment('usage_count');
+    return tag;
+}
+
 module.exports = {
     syncTags,
     createTag,
+    fetchTag,
 };
