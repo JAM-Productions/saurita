@@ -60,6 +60,11 @@ async function listTags() {
     return tagString;
 }
 
+async function deleteTag(tagName) {
+    const rowCount = await tags.destroy({ where: { name: tagName } });
+    return rowCount > 0;
+}
+
 module.exports = {
     syncTags,
     createTag,
@@ -67,4 +72,5 @@ module.exports = {
     editTag,
     displayTag,
     listTags,
+    deleteTag,
 };
