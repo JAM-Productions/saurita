@@ -38,7 +38,7 @@ async function createTag(tagName, tagDescription, username) {
 
 async function fetchTag(tagName) {
     const tag = await tags.findOne({ where: { name: tagName } });
-    tag.increment('usage_count');
+    tag.increment("usage_count");
     return tag;
 }
 
