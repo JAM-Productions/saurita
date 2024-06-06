@@ -2,7 +2,12 @@ const { SlashCommandBuilder } = require("discord.js");
 const { fetchTag } = require("../../services/database");
 
 module.exports = {
-    data: new SlashCommandBuilder().setName("fetchtag").setDescription("Fetch tag."),
+    data: new SlashCommandBuilder()
+        .setName("fetchtag")
+        .setDescription("Fetch tag.")
+        .addStringOption((option) =>
+            option.setName("name").setDescription("The name of the tag").setRequired(true),
+        ),
     async execute(interaction) {
         const tagName = interaction.options.getString("name");
 

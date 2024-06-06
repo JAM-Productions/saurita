@@ -32,7 +32,6 @@ async function createTag(tagName, tagDescription, username) {
         description: tagDescription,
         username: username,
     });
-    console.log(tag);
     return tag;
 }
 

@@ -2,7 +2,18 @@ const { SlashCommandBuilder } = require("discord.js");
 const { editTag } = require("../../services/database");
 
 module.exports = {
-    data: new SlashCommandBuilder().setName("edittag").setDescription("Edit a tag."),
+    data: new SlashCommandBuilder()
+        .setName("edittag")
+        .setDescription("Edit a tag.")
+        .addStringOption((option) =>
+            option.setName("name").setDescription("The name of the tag").setRequired(true),
+        )
+        .addStringOption((option) =>
+            option
+                .setName("description")
+                .setDescription("The description of the tag")
+                .setRequired(true),
+        ),
     async execute(interaction) {
         const tagName = interaction.options.getString("name");
         const tagDescription = interaction.options.getString("description");

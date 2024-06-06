@@ -2,10 +2,21 @@ const { SlashCommandBuilder } = require("discord.js");
 const { createTag } = require("../../services/database");
 
 module.exports = {
-    data: new SlashCommandBuilder().setName("addtag").setDescription("Add new tag."),
+    data: new SlashCommandBuilder()
+        .setName("addtag")
+        .setDescription("Add new tag.")
+        .addStringOption((option) =>
+            option.setName("name").setDescription("The name of the tag").setRequired(true),
+        )
+        .addStringOption((option) =>
+            option
+                .setName("description")
+                .setDescription("The description of the tag")
+                .setRequired(true),
+        ),
     async execute(interaction) {
-        const tagName = interaction.options.get("name");
-        const tagDescription = interaction.options.get("description");
+        const tagName = interaction.options.getString("name");
+        const tagDescription = interaction.options.getString("description");
 
         if (!tagName || !tagDescription) {
             return interaction.reply("Tag name or description is missing.");
