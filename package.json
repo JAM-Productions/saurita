@@ -9,7 +9,8 @@
     "format": "prettier --write 'src/**/*.js'",
     "check-format": "prettier --check 'src/**/*.js'",
     "deploy-commands-guild": "node src/deploy/deploy-commands-guild.js",
-    "deploy-commands-global": "node src/deploy/deploy-commands-global.js"
+    "deploy-commands-global": "node src/deploy/deploy-commands-global.js",
+    "clean": "rm -rf node_modules"
   },
   "author": "",
   "license": "ISC",
