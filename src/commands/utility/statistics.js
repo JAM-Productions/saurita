@@ -16,7 +16,9 @@ module.exports = {
             const response = await axios.get(`https://api.github.com/repos/${owner}/${repo}`);
             const repoData = response.data;
 
-            const pullsResponse = await axios.get(`https://api.github.com/repos/${owner}/${repo}/pulls`);
+            const pullsResponse = await axios.get(
+                `https://api.github.com/repos/${owner}/${repo}/pulls`,
+            );
             const pullCount = pullsResponse.data.length;
 
             const statistics = `
