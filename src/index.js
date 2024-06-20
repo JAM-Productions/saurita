@@ -1,5 +1,6 @@
 const { Client, Collection, GatewayIntentBits } = require("discord.js");
 const { loadCommands, loadEvents } = require("./helpers");
+
 require("dotenv").config();
 
 const client = new Client({
