@@ -17,8 +17,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'npm'
+          cache: 'yarn'
       - name: Install dependencies
-        run: npm install
+        run: yarn install
       - name: Prettier check
-        run: npm run check-format
+        run: yarn run check-format
