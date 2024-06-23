@@ -1,9 +1,9 @@
-const { execute } = require("../delete-tag");
-const { deleteTag } = require("../../../services/tagService");
+const { execute } = require("../../fetch-tag");
+const { fetchTag } = require("../../../../services/tagService");
 
-jest.mock("../../../services/tagService");
+jest.mock("../../../../services/tagService");
 
-describe("DeleteTag Command", () => {
+describe("FetchTag Command", () => {
     const originalConsoleError = console.error;
 
     beforeAll(() => {
@@ -14,7 +14,7 @@ describe("DeleteTag Command", () => {
         console.error = originalConsoleError;
     });
 
-    test("Successfully delete a tag", async () => {
+    test("Successfully fetch a tag", async () => {
         const mockInteraction = {
             options: {
                 getString: jest.fn().mockReturnValue("testTag"),
@@ -22,14 +22,14 @@ describe("DeleteTag Command", () => {
             reply: jest.fn(),
         };
 
-        deleteTag.mockResolvedValue(true);
+        fetchTag.mockResolvedValue({ get: jest.fn().mockReturnValue("testDescription") });
 
         await execute(mockInteraction);
 
-        expect(mockInteraction.reply).toHaveBeenCalledWith("Tag testTag deleted.");
+        expect(mockInteraction.reply).toHaveBeenCalledWith("testDescription");
     });
 
-    test("Tag does not exist", async () => {
+    test("Tag not found", async () => {
         const mockInteraction = {
             options: {
                 getString: jest.fn().mockReturnValue("testTag"),
@@ -37,14 +37,14 @@ describe("DeleteTag Command", () => {
             reply: jest.fn(),
         };
 
-        deleteTag.mockResolvedValue(false);
+        fetchTag.mockResolvedValue({ get: jest.fn().mockReturnValue(null) });
 
         await execute(mockInteraction);
 
-        expect(mockInteraction.reply).toHaveBeenCalledWith("Tag testTag does not exist.");
+        expect(mockInteraction.reply).toHaveBeenCalledWith("No description");
     });
 
-    test("Error while deleting a tag", async () => {
+    test("Error while fetching a tag", async () => {
         const mockInteraction = {
             options: {
                 getString: jest.fn().mockReturnValue("testTag"),
@@ -52,12 +52,10 @@ describe("DeleteTag Command", () => {
             reply: jest.fn(),
         };
 
-        deleteTag.mockRejectedValue(new Error("Unexpected error"));
+        fetchTag.mockRejectedValue(new Error("Unexpected error"));
 
         await execute(mockInteraction);
 
-        expect(mockInteraction.reply).toHaveBeenCalledWith(
-            "Something went wrong with displaying a tag.",
-        );
+        expect(mockInteraction.reply).toHaveBeenCalledWith("Could not find tag: testTag");
     });
 });

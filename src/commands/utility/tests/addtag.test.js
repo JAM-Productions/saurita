@@ -1,4 +1,4 @@
-const { execute } = require("../addtag");
+const { execute } = require("../add-tag");
 const { createTag } = require("../../../services/tagService");
 
 jest.mock("../../../services/tagService");
@@ -80,6 +80,8 @@ describe("AddTag Command", () => {
 
         await execute(mockInteraction);
 
-        expect(mockInteraction.reply).toHaveBeenCalledWith("Something went wrong with adding a tag.");
+        expect(mockInteraction.reply).toHaveBeenCalledWith(
+            "Something went wrong with adding a tag.",
+        );
     });
 });

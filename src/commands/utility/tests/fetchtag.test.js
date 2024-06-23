@@ -1,4 +1,4 @@
-const { execute } = require("../fetchtag");
+const { execute } = require("../fetch-tag");
 const { fetchTag } = require("../../../services/tagService");
 
 jest.mock("../../../services/tagService");

@@ -1,4 +1,4 @@
-const { execute } = require("../edittag");
+const { execute } = require("../edit-tag");
 const { editTag } = require("../../../services/tagService");
 
 jest.mock("../../../services/tagService");
@@ -45,7 +45,9 @@ describe("EditTag Command", () => {
 
         await execute(mockInteraction);
 
-        expect(mockInteraction.reply).toHaveBeenCalledWith("Could not find a tag with name testTag.");
+        expect(mockInteraction.reply).toHaveBeenCalledWith(
+            "Could not find a tag with name testTag.",
+        );
     });
 
     test("Error while editing a tag", async () => {
@@ -62,6 +64,8 @@ describe("EditTag Command", () => {
 
         await execute(mockInteraction);
 
-        expect(mockInteraction.reply).toHaveBeenCalledWith("Something went wrong with editing a tag.");
+        expect(mockInteraction.reply).toHaveBeenCalledWith(
+            "Something went wrong with editing a tag.",
+        );
     });
 });

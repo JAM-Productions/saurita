@@ -1,4 +1,4 @@
-const { execute } = require("../listtags");
+const { execute } = require("../list-tags");
 const { listTags } = require("../../../services/tagService");
 
 jest.mock("../../../services/tagService");
@@ -35,6 +35,8 @@ describe("ListTags Command", () => {
 
         await execute(mockInteraction);
 
-        expect(mockInteraction.reply).toHaveBeenCalledWith("Something went wrong with listing tags.");
+        expect(mockInteraction.reply).toHaveBeenCalledWith(
+            "Something went wrong with listing tags.",
+        );
     });
 });

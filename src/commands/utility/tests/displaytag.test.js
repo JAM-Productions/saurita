@@ -1,4 +1,4 @@
-const { execute } = require("../displaytag");
+const { execute } = require("../display-tag");
 const { displayTag } = require("../../../services/tagService");
 
 jest.mock("../../../services/tagService");
@@ -30,7 +30,9 @@ describe("DisplayTag Command", () => {
 
         await execute(mockInteraction);
 
-        expect(mockInteraction.reply).toHaveBeenCalledWith("testTag was created by testUser at 2024-01-01 and has been used 5 times.");
+        expect(mockInteraction.reply).toHaveBeenCalledWith(
+            "testTag was created by testUser at 2024-01-01 and has been used 5 times.",
+        );
     });
 
     test("Tag not found", async () => {
@@ -60,6 +62,8 @@ describe("DisplayTag Command", () => {
 
         await execute(mockInteraction);
 
-        expect(mockInteraction.reply).toHaveBeenCalledWith("Something went wrong with displaying a tag.");
+        expect(mockInteraction.reply).toHaveBeenCalledWith(
+            "Something went wrong with displaying a tag.",
+        );
     });
 });
