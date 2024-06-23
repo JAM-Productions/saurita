@@ -24,34 +24,36 @@ The diagram is the following:
 
 - Download [.env](https://drive.google.com/file/d/1IQ1Uu6AuxVQNMABkRBOZw4OuW-pTEXCX/view?usp=sharing) file and place it in the root directory of the project.
 
+- Yarn (`npm install -g yarn`).
+
 ## Installation
 
 ```bash
-npm install
+yarn install
 ```
 
 ## Run the bot
 
 ```bash
-npm start
+yarn start
 ```
 
 ## Format the code
 
 ```bash
-npm run format
+yarn format
 ```
 
 ## Check linting
 
 ```bash
-npm run check-format
+yarn check-format
 ```
 
 ## Run tests
 
 ```bash
-npm run test
+yarn test
 ```
 
 ## Deployment
@@ -59,13 +61,13 @@ npm run test
 ### Only in our Discord server
 
 ```bash
-npm run deploy-commands-guild
+yarn deploy-commands-guild
 ```
 
 ### Globally
 
 ```bash
-npm run deploy-commands-global
+yarn deploy-commands-global
 ```
 
 ## Development
